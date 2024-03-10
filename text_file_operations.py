@@ -1,5 +1,7 @@
 import os
 
+PWD = os.getcwd()
+
 
 def file_search(search_term, dir_string=os.getcwd(), match_term=False):
     """
@@ -37,3 +39,18 @@ def read_file_list(file_path, name_list, encoding):
         opened_file.close()
         text_data.append(read_file)
     return text_data
+
+
+def load_data(src_string, encoding='cp1252'):
+    text_dir = PWD + '/' + src_string + '/'
+    file_names = file_search(search_term='.txt', dir_string=text_dir)
+    return read_file_list(text_dir, file_names, encoding=encoding)
+
+
+def save_data(data_list, dst_string):
+    with open(dst_string, 'w') as file:
+        for line in data_list:
+            line_string = ''
+            for item in line:
+                line_string += item + ' '
+            file.write(line_string + '\n')

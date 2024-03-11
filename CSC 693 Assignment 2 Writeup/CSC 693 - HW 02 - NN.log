@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.2.6)  9 MAR 2024 14:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.2.6)  10 MAR 2024 20:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -245,33 +245,116 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count282
+\mult@box=\box54
+\multicol@leftmargin=\dimen173
+\c@unbalance=\count283
+\c@collectmore=\count284
+\doublecol@number=\count285
+\multicoltolerance=\count286
+\multicolpretolerance=\count287
+\full@width=\dimen174
+\page@free=\dimen175
+\premulticols=\dimen176
+\postmulticols=\dimen177
+\multicolsep=\skip55
+\multicolbaselineskip=\skip56
+\partial@page=\box55
+\last@line=\box56
+\maxbalancingoverflow=\dimen178
+\mult@rightbox=\box57
+\mult@grightbox=\box58
+\mult@firstbox=\box59
+\mult@gfirstbox=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\c@minrows=\count288
+\c@columnbadness=\count289
+\c@finalcolumnbadness=\count290
+\last@try=\dimen179
+\multicolovershoot=\dimen180
+\multicolundershoot=\dimen181
+\mult@nat@firstbox=\box97
+\colbreak@box=\box98
+\mc@col@check@num=\count291
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen182
+\ar@mcellbox=\box99
+\extrarowheight=\dimen183
+\NC@list=\toks23
+\extratabsurround=\skip57
+\backup@length=\skip58
+\ar@cellbox=\box100
+)
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count282
-\float@exts=\toks23
-\float@box=\box54
-\@float@everytoks=\toks24
-\@floatcapt=\box55
+\c@float@type=\count292
+\float@exts=\toks24
+\float@box=\box101
+\@float@everytoks=\toks25
+\@floatcapt=\box102
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count283
-\lst@gtempboxa=\box56
-\lst@token=\toks25
-\lst@length=\count284
-\lst@currlwidth=\dimen173
-\lst@column=\count285
-\lst@pos=\count286
-\lst@lostspace=\dimen174
-\lst@width=\dimen175
-\lst@newlines=\count287
-\lst@lineno=\count288
-\lst@maxwidth=\dimen176
+\lst@mode=\count293
+\lst@gtempboxa=\box103
+\lst@token=\toks26
+\lst@length=\count294
+\lst@currlwidth=\dimen184
+\lst@column=\count295
+\lst@pos=\count296
+\lst@lostspace=\dimen185
+\lst@width=\dimen186
+\lst@newlines=\count297
+\lst@lineno=\count298
+\lst@maxwidth=\dimen187
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count289
-\lst@skipnumbers=\count290
-\lst@framebox=\box57
+\c@lstnumber=\count299
+\lst@skipnumbers=\count300
+\lst@framebox=\box104
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -280,41 +363,41 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count291
-\l__pdf_internal_box=\box58
+\l__color_backend_stack_int=\count301
+\l__pdf_internal_box=\box105
 )
 (./CSC 693 - HW 02 - NN.aux)
 \openout1 = `"CSC 693 - HW 02 - NN.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 -- Lines per column: 56 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count292
-\scratchdimen=\dimen177
-\scratchbox=\box59
-\nofMPsegments=\count293
-\nofMParguments=\count294
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count295
-\MPscratchDim=\dimen178
-\MPnumerator=\count296
-\makeMPintoPDFobject=\count297
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count302
+\scratchdimen=\dimen188
+\scratchbox=\box106
+\nofMPsegments=\count303
+\nofMParguments=\count304
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count305
+\MPscratchDim=\dimen189
+\MPnumerator=\count306
+\makeMPintoPDFobject=\count307
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -324,111 +407,139 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count298
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+\c@lstlisting=\count308
+LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3
-5.
+8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
 <word2vec Top 25 Vectors.png, id=1, 578.16pt x 578.16pt>
 File: word2vec Top 25 Vectors.png Graphic file (type png)
 <use word2vec Top 25 Vectors.png>
-Package pdftex.def Info: word2vec Top 25 Vectors.png  used on input line 37.
+Package pdftex.def Info: word2vec Top 25 Vectors.png  used on input line 40.
 (pdftex.def)             Requested size: 202.35902pt x 202.35902pt.
 [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./word2vec Top 25 Vectors.
 png>]
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
  []
 
 <glove Top 25 Vectors.png, id=14, 578.16pt x 578.16pt>
 File: glove Top 25 Vectors.png Graphic file (type png)
 <use glove Top 25 Vectors.png>
-Package pdftex.def Info: glove Top 25 Vectors.png  used on input line 43.
+Package pdftex.def Info: glove Top 25 Vectors.png  used on input line 46.
 (pdftex.def)             Requested size: 202.35902pt x 202.35902pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
 
 [2 <./glove Top 25 Vectors.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
+<w2v_nn_vector_size_plot.png, id=19, 462.528pt x 346.896pt>
+File: w2v_nn_vector_size_plot.png Graphic file (type png)
+<use w2v_nn_vector_size_plot.png>
+Package pdftex.def Info: w2v_nn_vector_size_plot.png  used on input line 105.
+(pdftex.def)             Requested size: 206.39685pt x 154.79962pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+[3 <./w2v_nn_vector_size_plot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 130--136
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--107
+Underfull \hbox (badness 10000) in paragraph at lines 137--139
 
  []
 
+<entity_annotation_screenshot.png, id=28, 1083.04625pt x 1521.685pt>
+File: entity_annotation_screenshot.png Graphic file (type png)
+<use entity_annotation_screenshot.png>
+Package pdftex.def Info: entity_annotation_screenshot.png  used on input line 1
+44.
+(pdftex.def)             Requested size: 216.60541pt x 304.3316pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-[4]
-<HW 02 code (1).png, id=28, 897.3525pt x 607.26875pt>
+[4 <./entity_annotation_screenshot.png>]
+<sentiment_annotation_screenshot.png, id=34, 1083.04625pt x 1075.01625pt>
+File: sentiment_annotation_screenshot.png Graphic file (type png)
+<use sentiment_annotation_screenshot.png>
+Package pdftex.def Info: sentiment_annotation_screenshot.png  used on input lin
+e 156.
+(pdftex.def)             Requested size: 433.21083pt x 429.99889pt.
+ [5 <./sentiment_annotation_screenshot.png>]
+<HW 02 code (1).png, id=39, 897.3525pt x 607.26875pt>
 File: HW 02 code (1).png Graphic file (type png)
 <use HW 02 code (1).png>
-Package pdftex.def Info: HW 02 code (1).png  used on input line 116.
-(pdftex.def)             Requested size: 448.67514pt x 303.63364pt.
-<HW 02 code (2).png, id=29, 897.3525pt x 277.035pt>
+Package pdftex.def Info: HW 02 code (1).png  used on input line 162.
+(pdftex.def)             Requested size: 224.33757pt x 151.81682pt.
+<HW 02 code (2).png, id=40, 897.3525pt x 277.035pt>
 File: HW 02 code (2).png Graphic file (type png)
 <use HW 02 code (2).png>
-Package pdftex.def Info: HW 02 code (2).png  used on input line 117.
-(pdftex.def)             Requested size: 448.67514pt x 138.51715pt.
+Package pdftex.def Info: HW 02 code (2).png  used on input line 163.
+(pdftex.def)             Requested size: 224.33757pt x 69.25858pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
 
@@ -443,28 +554,31 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5 <./HW 02 code (1).png> <./HW 02 code (2).png>] (./CSC 693 - HW 02 - NN.aux) 
+[6 <./HW 02 code (1).png> <./HW 02 code (2).png>] (./CSC 693 - HW 02 - NN.aux) 
 ) 
 Here is how much of TeX's memory you used:
- 5628 strings out of 480129
- 86331 string characters out of 5893410
- 407552 words of memory out of 5000000
- 23536 multiletter control sequences out of 15000+600000
- 502844 words of font info for 97 fonts, out of 8000000 for 9000
+ 6201 strings out of 480129
+ 93715 string characters out of 5893410
+ 439527 words of memory out of 5000000
+ 24095 multiletter control sequences out of 15000+600000
+ 503359 words of font info for 99 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 55i,10n,62p,1301b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,10n,62p,1297b,1221s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "CSC 693 - HW 02 - NN.pdf" (5 pages, 295790 bytes).
+-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmri8a.pfb>
+Output written on "CSC 693 - HW 02 - NN.pdf" (6 pages, 1142362 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 94 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

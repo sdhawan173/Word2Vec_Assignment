@@ -4,6 +4,7 @@ import string
 import subprocess
 import shlex
 import nltk
+import numpy as np
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -67,6 +68,7 @@ PUNCTUATION.add('.............')
 PUNCTUATION.add('..............')
 
 PWD = os.getcwd()
+
 
 def split_sentence(text_data):
     """
@@ -240,23 +242,17 @@ def lda(all_comments, n):
     return lda_model
 
 
-def create_labels(data_arrays):
-    print('Creating data labels ...')
-    labels = []
-    for i in range(len(data_arrays)):
-        labels += [i for _ in data_arrays[i]]
-    return labels
-
-
-def word2vec_cbow(data, vector_size, window, min_count, sg=0, epochs=30):
-    print('Running word2vec with CBOW\n'
-          '(vector_size={}, window={}, min_count={}) ...'.format(vector_size, window, min_count))
+def word2vec_cbow(data, vector_size, window, min_count, sg=0, epochs=30, verbose=True):
+    if verbose:
+        print('Running word2vec with CBOW\n'
+              '(vector_size={}, window={}, min_count={}) ...'.format(vector_size, window, min_count))
     start = time.time()
     # sg=0 is CBOW
     word2vec_model = Word2Vec(data, vector_size=vector_size, window=window, min_count=min_count, sg=sg, epochs=epochs)
     end = time.time()
-    total = '{:.3f}'.format(end-start)
-    print('Time to train: {} seconds'.format(total))
+    total = '{:.3f}'.format(end - start)
+    if verbose:
+        print('Time to train: {} seconds'.format(total))
     return word2vec_model
 
 
@@ -276,7 +272,7 @@ def model_eval(eval_list, similarity_size, word2vec_model=None, glove_model=None
         if glove_model is not None:
             similar_words = glove_model.most_similar(word.lower(), topn=similarity_size)
         similar_words_output = [
-            (output_word, '{:.2f}'.format(similarity*100))
+            (output_word, '{:.2f}'.format(similarity * 100))
             for output_word, similarity in similar_words
         ]
         print('Words similar to \'{}\':{}'.format(word, similar_words_output))
@@ -358,19 +354,152 @@ def vector_visualize(model, word2vec=False, glove=False, top_count=25, show=Fals
         plt.show()
     if save:
         plt.savefig(PWD + '/CSC 693 Assignment 2 Writeup/{} Top {} Vectors.png'.format(model_name, top_count))
+    plt.clf()
+    plt.close()
 
 
-def word2vec_nn(data, word2vec_model):
-    embeddings = [word2vec_model.wv[word] for word in word2vec_model.wv.index_to_key]
+def create_labels(data_arrays):
+    print('Creating data labels ...')
+    labels = []
+    for i in range(len(data_arrays)):
+        labels += [i for _ in data_arrays[i]]
+    return labels
 
-    data_labels = create_labels((negative_data, positive_data))
+
+def comment_embeddings(data, data_labels, model):
+    comment_embedding_data = []
+    new_labels = []
+    word_embedding_data = {word: model.wv[word] for word in model.wv.index_to_key}
+    for comment, label in zip(data, data_labels):
+        embedding_sum = [0] * len(model.wv[model.wv.index_to_key[0]])
+        word_count = 0
+        for word in comment:
+            if isinstance(word, str) and word in word_embedding_data:
+                embedding_sum = [x + y for x, y in zip(embedding_sum, word_embedding_data[word])]
+                word_count += 1
+        if word_count > 0:
+            embedding_avg = [x / word_count for x in embedding_sum]
+            comment_embedding_data.append(embedding_avg)
+            new_labels.append(label)
+    return np.array(comment_embedding_data), np.array(new_labels)
+
+
+def tf_pos_neg(testing_predictions, testing_labels):
+    prediction_labels = [1 if prediction > 0.5 else 0 for prediction in testing_predictions]
+    true_positives_list = [(p == 1 and t == 1) for p, t in zip(prediction_labels, testing_labels)]
+    false_positive_list = [(p == 1 and t == 0) for p, t in zip(prediction_labels, testing_labels)]
+    false_negative_list = [(p == 0 and t == 1) for p, t in zip(prediction_labels, testing_labels)]
+    true_negative_list = [(p == 0 and t == 0) for p, t in zip(prediction_labels, testing_labels)]
+    true_positive_sum = sum(true_positives_list)
+    false_positive_sum = sum(false_positive_list)
+    false_negative_sum = sum(false_negative_list)
+    true_negative_sum = sum(true_negative_list)
+    return true_positive_sum, false_positive_sum, false_negative_sum, true_negative_sum
+
+
+def nn_eval(true_positive, false_positive, false_negative, true_negative, verbose_boolean=True):
+    accuracy = (true_positive + true_negative) / (true_positive + true_negative + false_positive + false_negative)
+    precision = true_positive / (true_positive + false_positive)
+    recall = true_positive / (true_positive + false_negative)
+    f1 = 2 * (precision * recall) / (precision + recall)
+    if verbose_boolean:
+        print('Accuracy  = ', accuracy)
+        print('Precision = ', precision)
+        print('Recall    = ', recall)
+        print('F1        = ', f1)
+    return accuracy, precision, recall, f1
+
+
+def word2vec_nn(data, data_labels, word2vec_model, verbose_boolean=False):
+    if verbose_boolean:
+        print('Running word2vec Neural Network ...')
+        print('     Aggregating word embeddings ...')
+    comment_embedding_data, data_labels = comment_embeddings(data, data_labels, word2vec_model)
+    if verbose_boolean:
+        print('     Creating training, validation, and testing data and labels ...')
     training_data, testing_data, training_labels, testing_labels = (
-        sklms.train_test_split(data_split_words, data_labels, test_size=0.2, stratify=data_labels, random_state=666)
+        sklms.train_test_split(
+            comment_embedding_data,
+            data_labels,
+            test_size=0.2,
+            stratify=data_labels,
+            random_state=666
+        )
     )
-    validation_data, testing_data = sklms.train_test_split(testing_data, test_size=0.5, random_state=666)
-    validation_labels, testing_labels = sklms.train_test_split(testing_labels, test_size=0.5, random_state=666)
-
+    validation_data, testing_data = sklms.train_test_split(
+        testing_data,
+        test_size=0.5,
+        random_state=666
+    )
+    validation_labels, testing_labels = sklms.train_test_split(
+        testing_labels,
+        test_size=0.5,
+        random_state=666
+    )
+    if verbose_boolean:
+        print('     Building neural network ...')
     neural_network = tf.keras.Sequential([
-        tf.keras.layers.Dense(10, activation='relu', input_shape=(X_train.shape[1],)),  # Hidden layer with 10 neurons
-        tf.keras.layers.Dense(1, activation='sigmoid')  # Output layer with sigmoid activation for binary classification
+        tf.keras.layers.Dense(
+            units=10,
+            activation='relu'
+        ),
+        tf.keras.layers.Dense(
+            units=1,
+            activation='sigmoid'
+        )
     ])
+    print('     Compiling neural network ...')
+    neural_network.compile(
+        optimizer='adam',
+        loss='binary_crossentropy',
+        metrics=['accuracy']
+    )
+    if verbose_boolean:
+        print('     Running neural network ...')
+    neural_network.fit(
+        training_data,
+        training_labels,
+        validation_data=(
+            validation_data,
+            validation_labels
+        ),
+        epochs=10,
+        batch_size=32,
+        verbose=0
+    )
+    if verbose_boolean:
+        print('     Evaluating neural network ...')
+    testing_predictions = neural_network.predict(testing_data)
+    tp, fp, fn, tn = tf_pos_neg(testing_predictions, testing_labels)
+    accuracy, precision, recall, f1 = nn_eval(tp, fp, fn, tn, verbose_boolean=verbose_boolean)
+    return accuracy, precision, recall, f1
+
+
+def w2v_nn_testing(data, data_labels, max_vector_size, verbose_boolean=False):
+    print('Running Neural Network for vector sizes from 1 to {}'.format(max_vector_size))
+    size_list = [i + 1 for i in range(max_vector_size)]
+    accuracy_list = []
+    precision_list = []
+    recall_list = []
+    f1_list = []
+    for vector_size in size_list:
+        print('Current vector size =', vector_size)
+        word2vec_testing = word2vec_cbow(data, vector_size=vector_size, window=5, min_count=1, verbose=False)
+        accuracy, precision, recall, f1 = word2vec_nn(data, data_labels, word2vec_testing, verbose_boolean=False)
+        accuracy_list.append(100*accuracy)
+        precision_list.append(100*precision)
+        recall_list.append(100*recall)
+        f1_list.append(100*f1)
+    fig, ax = plt.subplots()
+    ax.plot(size_list, accuracy_list, marker='o', label='Accuracy', zorder=4)
+    ax.plot(size_list, precision_list, marker='o', label='Precision', zorder=3)
+    ax.plot(size_list, recall_list, marker='o', label='Recall', zorder=2)
+    ax.plot(size_list, f1_list, marker='o', label='F1 Score', zorder=1)
+    plt.xlabel('Vector Size')
+    plt.ylabel('Percentage')
+    plt.title('Word2Vec Metrics vs. Vector Size')
+    plt.legend()
+    plt.show()
+    fig.savefig(PWD + '/CSC 693 Assignment 2 Writeup/w2v_nn_vector_size_plot.png')
+    plt.clf()
+    plt.close()

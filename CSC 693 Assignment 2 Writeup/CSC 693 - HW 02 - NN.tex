@@ -7,6 +7,9 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{array}
 \usepackage{float} % Add the float package for H specifier
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -80,15 +83,41 @@ With the same preprocessing as 1), the time to train was 30.933 seconds.\\
 \hline
 \end{tabular}
 \end{table}
-GloVe and Word2vec produce outputs that seem to be as meaningful as the other except for certain words. The two most similar words from word2vec for "movie" are more relevant than the two most similar words from Glove, although "kon" is part of a Hindi title from a comment describing two Bollywood movies and given the entire code is meant for English, this is likely what threw it off. The similar words for music is better in word2vec with two exceptions: photography and costumes while GloVe has multiple words that do not necessarily belong such as costumes, swelling, and rrhs (although the comment this was taken from has rrhs as an acronym for "Rock and Roll High School". The similar words for "Christmas" are overall much more meaningful in GloVe than in the similar words produced by word2vec. As for the similar words to "woman", this may be a reflection of the movie reviewers and/or the movies they were reviewing, but many words from both models would be considered mysogynistc descriptions of women such as "maiden", "naive", "aged", and "warthog" in word2vec and "unmarried", "fatcheek", "isolating", "embittered", and "hollow" in GloVe. Regardless, those descriptions are technically meaningful in their relation to the word "woman".\\
+GloVe and Word2vec produce outputs that seem to be as meaningful as the other except for certain words. The two most similar words from word2vec for "movie" are more relevant than the two most similar words from Glove, although "kon" is part of a Hindi title from a comment describing two Bollywood movies and given the entire code is meant for English, this is likely what threw it off. The similar words for music is better in word2vec with two exceptions: photography and costumes, while GloVe has multiple words that do not necessarily belong such as costumes, swelling, and rrhs (although the comment this token was taken from has rrhs as an acronym for "Rock and Roll High School". The similar words for "Christmas" are overall much more meaningful in GloVe than in the similar words produced by word2vec. As for the similar words to "woman", this may be a reflection of the movie reviewers and/or the movies they were reviewing, but many words from both models would be considered mysogynistc descriptions of women such as "maiden", "naive", and "aged" in word2vec and "unmarried", "fatcheek", "isolating", "embittered", and "hollow" in GloVe. Regardless, those descriptions are technically meaningful in their relation to the word "woman".\\
 \newpage
 \item Train word embeddings vectors using word2vec method with CBOW style and set the vector size as 1, 10, 100 separately. You then have three embedding models $m_1$, $m_2$, and $m_3$.\\
 
-
-
-\item Split the dataset into training, validation and testing sets by 80/10/10. Train a neural network classifier (1 hidden layer, 10 neurons, activation='relu') for the comment sentiment classification. Report the classifier accuracy, precision, recall and F1 score on the testing set given $m_1$, $m_2$, and $m_3$ as the pre-trained word embeddings. (Tip: make sure you load the pretrained embeddings) Which one has the best performance? Explain.\\
+\item Split the dataset into training, validation and testing sets by 80/10/10. Train a neural network classifier (1 hidden layer, 10 neurons, activation='relu') for the comment sentiment classification. Report the classifier accuracy, precision, recall and F1 score on the testing set given $m_1$, $m_2$, and $m_3$ as the pre-trained word embeddings. (Tip: make sure you load the pretrained embeddings) Which one has the best performance? Explain.
+\begin{table}[H]
+\centering
+\begin{tabular}{|llll|}
+\hline
+\multicolumn{4}{|l|}{Evaluation of Word2Vec Neural Network}                                          \\ \hline
+\multicolumn{1}{|l|}{}          & \multicolumn{1}{l|}{$m_1$}  & \multicolumn{1}{l|}{$m_2$}  & $m_3$  \\ \hline
+\multicolumn{1}{|l|}{Accuracy}  & \multicolumn{1}{l|}{0.4850} & \multicolumn{1}{l|}{0.6950} & 0.7900 \\ \hline
+\multicolumn{1}{|l|}{Precision} & \multicolumn{1}{l|}{0.4850} & \multicolumn{1}{l|}{0.6765} & 0.7723 \\ \hline
+\multicolumn{1}{|l|}{Recall}    & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{0.7113} & 0.8041 \\ \hline
+\multicolumn{1}{|l|}{F1}        & \multicolumn{1}{l|}{0.6532} & \multicolumn{1}{l|}{0.6935} & 0.7879 \\ \hline
+\end{tabular}
+\end{table}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\columnwidth]{w2v_nn_vector_size_plot.png}
+\end{figure}
+$m_3$ has the best results in all four metrics of the three models.  The accuracy, precision, recall, and F1 score all increased with vector size - with an outlier of 100\% recall for a vector size of 1 and 100\% precision for a vector size close to 1. The size of the vector increasing means there are more dimensions to work with, and more potential relations with other word vectors to be had, allowing for more detailed predictions.\\
 
 \item Suppose we use word2vec to train word vectors with window size as 3. Given a sentence “Very good drama”, it will be transferred to the training set with instances X and corresponding labels Y. If we choose skip-gram style, what are X and Y in the training set? If we choose CBOW style, what are X and Y in the training set?\\
+
+The skip-gram style predicts surrounding words given a target word. In the training set, X and Y would be the following:
+\begin{lstlisting}
+x: ['very', 'good', 'drama']
+y: [['good'], ['very', 'drama'], ['good']]
+\end{lstlisting}
+The CBOW style predicts a target word given surrounding words. X and Y would be the following:
+\begin{lstlisting}
+x: [['good', 'drama'], ['very', 'drama'], ['very', 'good']]
+y: ['very', 'good', 'drama']
+\end{lstlisting}
 
 \end{enumerate}
 \newpage
@@ -108,18 +137,57 @@ Annotation Results: \\
 Sentiment Annotation: “\textit{De Niro has the ability to make every role he portrays into acting gold. He gives a great performance in this film and there is a great scene where he has to take his father to a home for elderly people because he can't care for him anymore that will break your heart. I will say you won't see much bette acting anywhere.}”\\
 Annotation Results: Positive\\
 
-Report the name of the tool you chose. When you are annotating, make a couple of screenshots and put them into the report. After annotation, you should obtain a file with annotation information from the tool: the annotated data file. Submit the annotated data files for the above two tasks.\\
+Report the name of the tool you chose. When you are annotating, make a couple of screenshots and put them into the report. After annotation, you should obtain a file with annotation information from the tool: the annotated data file. Submit the annotated data files for the above two tasks.
+\begin{multicols}{2}
+The tool used for entity annotaion is \url{termitexpert.in/annotation_spacy_ner}
+\begin{center}
+\includegraphics[scale=0.2]{entity_annotation_screenshot.png}
+\end{center}
+It produces a text file with the following contents:\\
+\begin{lstlisting}
+[('Barack Obama was the 44th President of the United States. He was born in Hawaii and studied law at Harvard University. ', {'entities': [(0, 12, 'PERSON'), (21, 25, 'CARDINAL'), (73, 79, 'GPE'), (99, 117, 'ORG')]})]
+\end{lstlisting}
+\end{multicols}
+
+\newpage
+
+The tool used for sentiment annotation is \url{https://monkeylearn.com/sentiment-analysis-online/}. I could not find any tool that gave a file as an output, but it rated the text as positive with 97.6\% confidence.
+\begin{center}
+\includegraphics[scale=0.4]{sentiment_annotation_screenshot.png}
+\end{center}
 
 \newpage
 \item Active learning is a method to improve annotation efficiency. The following code imitates an active learning process.
 \begin{center}
-\includegraphics[scale=0.5]{HW 02 code (1).png}
-\includegraphics[scale=0.5]{HW 02 code (2).png}
+\includegraphics[scale=0.25]{HW 02 code (1).png}
+\includegraphics[scale=0.25]{HW 02 code (2).png}
 \end{center}
 \begin{enumerate}
 \item What is the purpose of the code between “\verb"### below"” and “\verb"### above"”? Replace these code and other necessary code (as few as possible) to implement the active learning method in another strategy. Compare these two strategies, which one is better in this example?\\
 
+The purpose of the three lines of code is to prepare to remove the values in \verb"x_pool" and \verb"y_pool" with the largest probability entropies, where entropy is a measure of randomness of the probabilities.
+\begin{itemize}
+\item \verb"y_pool_prob = model.predict_proba(x_pool)"\\
+This line uses a logistic regression model to predict the probabilites of \verb"x_pool" and stores them in \verb"y_pool_prob".
+
+\item \verb"entropy = -np.sum(y_pool_prob * np.log(y_pool_prob), axis=1)"\\
+This line calculates the entropy of each value in the \verb"y_pool_prob".
+
+\item \verb"query_idx = np.argsort(entropy)[-batch_size:]"\\
+\verb"np.argsort" sorts the entropy list numerically and returns the original indices of the sorted values. \verb"[-batch_size]" takes the last $n$ elements, where $n=$ \verb"batch_size", of the array of indices produced by \verb"np.argsort" and stores those last indices in \verb"query_idx" to be used for selecting elements based on their indices in the next two lines.\\
+\end{itemize}
+
+replacing the last two lines of code between \verb"### below" and \verb"### above" with:
+\begin{lstlisting}
+least_confidence = [np.max(y_pool_prob) - np.average(prob_val) for prob_val in y_pool_prob]
+query_idx = np.argsort(least_confidence)[-batch_size:]
+\end{lstlisting}
+calculates the least confidence, or the difference of $x$ probability in the list from the maximum probability, and takes the lowest $n$ (batch size) items in the list to be removed after being set equal to \verb"query_idx". Surprisingly, the accuracy values produced by each iteration are exactly the same as before the change. Altering the batch size by increasing it has more effect, although an increased batch size with either removal method still produced the exact same accuracies for both methods.\\
+
+
 \item If the code is used for movie review annotation, how many reviews need to be labelled by the annotator every time? Discuss the possible pros and cons by increasing and decreasing this number.\\
+
+The current batch size is 10, so 10 movie reviews would need to be labelled by the annotator each time. This helps reduce the time spent annotating, but may lower accuracy. If the batch size is increased, more reviews will need to be labelled which is more time consuming on a large scale dataset, but the accuracy would be increase as the batch size increases.
 
 \end{enumerate}
 \end{enumerate}

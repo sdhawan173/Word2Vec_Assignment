@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cd6eec7-3704-45ac-bab0-49d09e36aeee" name="Changes" comment="" />
+    <list default="true" id="6cd6eec7-3704-45ac-bab0-49d09e36aeee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CSC 693 - HW 02 - NN.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/entity_annotation_screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/sentiment_annotation_screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/w2v_nn_vector_size_plot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity_annotation_result.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity_annotation_text.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.aux" beforeDir="false" afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.log" beforeDir="false" afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.tex" beforeDir="false" afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/CSC 693 - HW 02 - NN.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/glove Top 25 Vectors.png" beforeDir="false" afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/glove Top 25 Vectors.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/word2vec Top 25 Vectors.png" beforeDir="false" afterPath="$PROJECT_DIR$/CSC 693 Assignment 2 Writeup/word2vec Top 25 Vectors.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw_02_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw_02_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text_annotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_annotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_functions.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +55,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.hw_02_main.executor": "Run",
+    "Python.text_annotation.executor": "Run",
     "Python.text_functions.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -84,12 +104,21 @@
       <option name="project" value="LOCAL" />
       <updated>1710041125972</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed github problem">
+      <option name="closed" value="true" />
+      <created>1710041223451</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710041223451</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="question 1 part 1-4 finished, working on part 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="question 1 part 1-4 finished, working on part 5" />
+    <MESSAGE value="fixed github problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed github problem" />
   </component>
 </project>

@@ -1,0 +1,1 @@
+[('Barack Obama was the 44th President of the United States. He was born in Hawaii and studied law at Harvard University. ', {'entities': [(0, 12, 'PERSON'), (21, 25, 'CARDINAL'), (73, 79, 'GPE'), (99, 117, 'ORG')]})]
